@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/intro.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">SIMON SAYS...</h1>
+        <div class="juego">
+            <form action="./pages/juego.html" class="juego__form">
+                <label for="dificultad" class="form__label">Selecciona dificultad: </label>
+                <select name="dificultad" id="dificultad" required class="form__select">
+                    <option class="select__option-0" value="">---</option>
+                    <option class="select__option-1" value="facil">Fácil</option>
+                    <option class="select__option-2" value="normal">Normal</option>
+                    <option class="select__option-3" value="dificil">Dificil</option>
+                </select>
+                <label for="nombre">Escribe tu nickname:</label>
+                <input type="text" required placeholder="Nickname" class="form__select">
+                <input type="submit" class="form__button">
+            </form>
+            <div class="simon">
+                <div class="simon__color-1" id="color1"></div>
+                <div class="simon__color-2" id="color2"></div>
+                <div class="simon__color-3" id="color3"></div>
+                <div class="simon__color-4" id="color4"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/script.js"></script>
+</html>

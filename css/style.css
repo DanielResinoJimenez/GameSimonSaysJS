@@ -1,0 +1,50 @@
+/* STYLE.CSS */
+
+:root{
+    --bg-color: #102541;
+    --select-bgcolor: #183a62;
+    --header-bg: #174f8d;
+    --border: #509be0;
+    --title-color: #c2daf5;
+    --intro-txtcolor: #e4edfa;
+    --border-footer: #f2f7fd;
+}
+
+@font-face {
+    font-family: 'title';
+    src: url(./../assets/fonts/Kanit-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'text';
+    src: url(./../assets/fonts/Anton-Regular.ttf);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--bg-color);
+    margin: 0;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: repeat(1fr);
+    grid-template-areas: "header header"
+                         "main main"
+                         "footer footer";
+}
+
+.header{
+    grid-area: header;
+}
+
+.main{
+    grid-area: main;
+}
+
+.footer{
+    grid-area: footer;
+}

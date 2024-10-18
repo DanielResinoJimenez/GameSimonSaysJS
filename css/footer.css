@@ -1,0 +1,24 @@
+/* FOOTER CSS */
+
+.footer{
+    background-color: var(--select-bgcolor);
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    border-top: 3px solid var(--border-footer);
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    font-family: "title";
+}
+
+.list__title{
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.footer__list{
+    list-style: none;
+}
+

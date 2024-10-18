@@ -1,0 +1,39 @@
+/* HEADER CSS */
+
+.header{
+    font-family: 'title';
+    background-color: var(--header-bg);
+    min-width: 628px;
+    max-width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header__title{
+    color: var(--title-color);
+    margin: 10px;
+    
+}
+
+.header__list{
+    list-style: none;
+    display: flex;
+    max-width: 700px;
+}
+
+.list__item{
+    margin-right: 50px;
+}
+
+.list__item-link{
+    text-decoration: none;
+    color: var(--title-color);
+}
+
+.list__item-link:hover{
+    font-size: 17px;
+    transition: font-size 0.2s;
+}
