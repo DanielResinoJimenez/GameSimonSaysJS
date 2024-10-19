@@ -4,11 +4,10 @@
     background-color: var(--select-bgcolor);
     margin: 0;
     padding: 0;
-    max-width: 100%;
+    width: 100%;
     border-top: 3px solid var(--border-footer);
-    position: sticky;
+    position: fixed;
     bottom: 0;
-    left: 0;
     display: flex;
     font-family: "title";
     justify-content: space-around;

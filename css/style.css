@@ -8,6 +8,11 @@
     --title-color: #c2daf5;
     --intro-txtcolor: #e4edfa;
     --border-footer: #f2f7fd;
+    --color1-simon: red;
+    --color2-simon: blue;
+    --color3-simon: green;
+    --color4-simon: yellow;
+
 }
 
 @font-face {
@@ -31,10 +36,11 @@ body{
 
 .container{
     display: grid;
-    grid-template-rows: repeat(1fr);
+    grid-template-rows: 100px 1fr 200px;
     grid-template-areas: "header header"
                          "main main"
                          "footer footer";
+    
 }
 
 .header{
