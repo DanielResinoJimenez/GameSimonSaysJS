@@ -12,6 +12,37 @@
     display: flex;
     font-family: "title";
     justify-content: space-around;
+    opacity: 0;
+
+    /*ANIMATION*/
+
+    animation-name: footer;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+}
+
+@keyframes footer {
+    0%{
+        opacity: 0;
+        transform: translateY(500px);
+    }
+    25%{
+        opacity: 1;
+        transform: translateY(-150px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(50px);
+    }
+    75%{
+        opacity: 1;
+        transform: translateY(-75px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 .list__title{

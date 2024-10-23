@@ -1,132 +1,108 @@
-/* INTRO CSS */
+/*INTRO CSS*/
+
+.body{
+    margin: 0 auto;
+    width: 1400px;
+}
 
 .container{
-    display: flex;
-    margin: 0 auto;
     max-width: 1200px;
-    min-width: 400px    ;
-    justify-content: center;
-    flex-direction: column;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
 }
 
 .title{
     font-family: 'title';
-    color: var(--title-color);
-    letter-spacing: 1.5rem;
+    color: var(--intro-txtcolor);
+    font-size: 80px;
+    font-variant: small-caps;
+    opacity: 0;
+
+    /*ANIMATION*/
+
+    animation-name: title;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes title {
+    0%{
+        opacity: 0;
+        transform: rotate(-45deg) translateX(-800px);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg) translateX(0px);
+    }
+}
+
+.subtitle{
+    font-family: 'title';
+    color: var(--intro-txtcolor);
+    font-size: 70px;
+    font-variant: small-caps;
+    opacity: 0;
+    margin-top: -50px;
+
+    /*ANIMATION*/
+
+    animation-name: subtitle;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes subtitle {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translateX(400px);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg) translateX(0px);
+    }
+}
+
+.play{
+    text-shadow: 
+    2px 0 black,   /* Sombra hacia la derecha */
+    -2px 0 black,  /* Sombra hacia la izquierda */
+    0 2px black,   /* Sombra hacia abajo */
+    0 -2px black,  /* Sombra hacia arriba */
+    2px 2px black, /* Sombra en diagonal abajo-derecha */
+    2px -2px black,/* Sombra en diagonal arriba-derecha */
+    -2px 2px black,/* Sombra en diagonal abajo-izquierda */
+    -2px -2px black; /* Sombra en diagonal arriba-izquierda */
+    color: var(--intro-txtcolor);
+    font-family: 'title';
     font-size: 100px;
-    text-align: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: all 1s;
+    
+
+    /*ANIMATION*/
+
+    animation-name: play;
+    animation-duration: 2s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes play {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
     
 }
 
-.juego{
-    max-width: 1000px;
-    min-width: 400px;
-    border: 3px solid var(--border);
-    font-family: 'text';
-    color: var(--title-color);
-    letter-spacing: 3px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 20px 10px var(--border);
-    display: flex;
-    flex-wrap: wrap;
-    padding: 30px;
-}
-
-.juego__form{
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-}
-
-.form__label{
-    margin-bottom: 20px;
-}
-
-.form__select{
-    max-width: 400px;
-    padding: 10px 100px 10px 100px;
-    background-color: var(--select-bgcolor);
-    color: var(--intro-txtcolor);
-    font-size: 20px;
-    font-family: 'text';
-    letter-spacing: 3px;
-    border-radius: 10px;
-    margin-bottom: 50px;
-}
-
-.select__option-0{
-    
-}
-
-.select__option-1{
-    color: green;
-    letter-spacing: 3px;
-    
-}
-
-.select__option-2{
-    color: orange;
-    letter-spacing: 3px;
-}
-
-.select__option-3{
-    color: red;
-    letter-spacing: 3px;
-}
-
-.form__button{
-    height: 50px;
-    font-family: 'text';
-    font-size: 20px;
-    border-radius: 10px;
-    color: var(--intro-txtcolor);
-    background-color: var(--bg-color);
-    border: 1px solid black;
-}
-
-.form__button:hover{
-    background-color: var(--title-color);
+.play:hover{
     color: var(--bg-color);
-    transition: background-color 1s;
-}
-
-.simon{
-    width: 450px;
-    height: 450px;
-    background-color: black;
-    border-radius: 100%;    
-    display: grid;
-    grid-template-areas: "simon__color-1 simon__color-2"
-                         "simon__color-4 simon__color-3";
-}
-
-.simon__color-1{
-    background-color: red;
-    grid-area: simon__color-1;
-    border-top-left-radius: 100%;
-    border: 5px solid black;
-}
-
-.simon__color-2{
-    background-color: green;
-    grid-area: simon__color-2;
-    border-top-right-radius: 100%;
-    border: 5px solid black;
-}
-
-.simon__color-3{
-    background-color: blue;
-    grid-area: simon__color-3;
-    border-bottom-right-radius: 100%;
-    border: 5px solid black;
-}
-
-.simon__color-4{
-    background-color: yellow;
-    grid-area: simon__color-4;
-    
-    border: 5px solid black;
-    border-bottom-left-radius: 100%;
 }

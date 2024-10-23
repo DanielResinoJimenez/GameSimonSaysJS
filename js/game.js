@@ -9,6 +9,7 @@ let color1 = document.getElementById("color1");
 let color2 = document.getElementById("color2");
 let color3 = document.getElementById("color3");
 let color4 = document.getElementById("color4");
+let points = document.getElementById("points");
 
 let colores = [color1, color2, color3, color4];
 
@@ -27,6 +28,23 @@ let cont = 0;
 // Variable para guardar la secuencia de colores.
 let secuencia = [];
 let secuenciaAcaba = false;
+
+// Varible donde guardamos el intervalo para después poder terminarle
+let juego;
+
+// Variable para anunciar que la ronda acaba
+let rondaTerminada = false;
+
+// Variable para almacenar el tiempo que es necesario para que se ejecute un setTimeout
+let tiempo = 0;
+
+// Variable que indica la velocidad de ejecución del intervalo y que disminuye con el paso de las rondas
+let velocidad = 1500;
+
+// Variable donde almacenamos el color que debe iluminarse
+let randColor;
+
+
 // Funcion para representar la secuencia de colores anterior.
 const secuenciaAnt = () => {
     console.log("Citando la secuencia anterior...");
@@ -41,17 +59,9 @@ const secuenciaAnt = () => {
         secuenciaAcaba = true;
     }
 
-
 }
 
-let juego;
-let rondaTerminada = false;
-let tiempo = 0;
-let velocidad = 1500;
-let randColor;
-
 const mov = () => {
-
 
     // Bucle para borrar la iluminación del color anterior.
     if (colAnt != "") {
@@ -65,7 +75,7 @@ const mov = () => {
 
     } while (bgAnt == getComputedStyle(colores[randColor]).getPropertyValue("background-color"));
 
-    if (!secuenciaAcaba && contMov>3) {
+    if (!secuenciaAcaba && contMov > 3) {
         secuenciaAnt();
     } else {
 
@@ -87,8 +97,6 @@ const mov = () => {
         }
     }
 
-
-
 }
 
 // Función de inicio para cada ronda.
@@ -103,11 +111,8 @@ const inicioRonda = () => {
 const aumento = () => {
     contMov++;
     velocidad -= 300;
-
+    finJuego(contMov);
 }
-
-// Variable que recoge la dificultad seleccionada.
-let dificulty = "easy";
 
 // Variable que nos dice si el jugador ha acertado todo o no.
 let acertado = false;
@@ -119,25 +124,26 @@ const jugador = (event) => {
 
     if (event.target.id == secuencia[contJugador].id) {
         console.log("Acierto");
-        console.log(contJugador);
-        ronda.style.display = "block";
-        ronda.textContent = "Has acertado, sigue así";
+        points.textContent = parseInt(points.textContent)+10;
         contJugador++;
         acertado = true;
     } else {
         console.log("Fallo");
-        simon.style.display = "none";
-        ronda.style.display = "none";
+        start.textContent = "Restart";
+        start.style.display = "block";
+        game__container.style.display = "none";
         lose.style.display = "block";
+        cont = 0;
+        contJugador = 0;
+        contMov = 3;
+        secuencia = [];
         acertado = false;
     }
 
     if (contJugador == secuencia.length && acertado) {
         console.log("Pasas de ronda");
-        ronda.style.display = "none";
         aumento();
         inicioRonda();
-        //secuenciaAnt();
         juego = setInterval(mov, velocidad);
     }
 }
@@ -146,11 +152,11 @@ const jugador = (event) => {
 // Función para llevar a cabo el juego.
 const jugar = () => {
     start.style.display = "none";
+    lose.style.display = "none";
     game__container.style.display = "flex";
     tiempo = parseInt(1700 * contMov);
     console.log("Turno de la máquina");
     juego = setInterval(mov, velocidad);
-
     setTimeout(() => {
         console.log("Turno jugador");
         simon.addEventListener("click", jugador);
@@ -158,6 +164,15 @@ const jugar = () => {
     }, tiempo);
 
 }
+
+const finJuego = (contMov) => {
+    if(cont > 10){
+        console.log("Has ganado la partida");
+        simon.style.display = "none";
+    }
+}
+
+// Eventos
 
 start.addEventListener("click", jugar);
 

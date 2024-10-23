@@ -24,29 +24,44 @@
             </ul>
         </header>
         <main class="main">
+            <!-- Login -->
+            <div class="login" id="login">
+                <form action="" class="login__form" id="form__login">
+                    <label for="nickname" class="form__text">Nickname: </label>
+                    <input type="text" class="nickname" placeholder="nickname" id="nickname">
+                    <span class="avisoNick" id="avisoNick">Debes escribir tu nickname</span>
+                    <label for="dificulty" class="form__text">Dificulty: </label>
+                    <select name="dificulty" id="dificulty" class="dificulty">
+                        <option value="" class="dificulty__easy">---</option>
+                        <option value="easy" class="dificulty__easy">Easy</option>
+                        <option value="medium" class="dificulty__medium">Medium</option>
+                        <option value="hard" class="dificulty__hard">Hard</option>
+                    </select>
+                    <span class="avisoDif" id="avisoDif">Debes seleccionar una dificultad</span>
+                    <button type="button" class="form__button" id="form__button">Enter</button>
+                </form>
+            </div>
 
             <!-- Marcadores -->
-
-            <div class="marcadores">
+            <div class="marcadores" id="marcadores">
+                <h3 class="lose" id="lose"> You Lose !</h3>
+                <p class="marcadores__text">Player: <span id="nickname__text"></span></p>
+                <p class="marcadores__text">Dificulty: <span id="dificulty__text"></span></p>
+                <p class="marcadores__text">Points: <span id="points">0</span></p>
                 <button class="button__start" id="button__start">Start</button>
-
             </div>
 
             <!-- Game container -->
             <div class="game__container" id="game__container">
-                <h2 class="ronda" id="ronda"></h2>
-                <h3 class="lose" id="lose"> You Lose !</h3>
                 <div class="simon" id="simon">
                     <div class="color1 " id="color1"></div>
                     <div class="color2 " id="color2"></div>
                     <div class="color3 " id="color3"></div>
                     <div class="color4 " id="color4"></div>
                 </div>
-
             </div>
-
         </main>
-        <!-- <footer class="footer">
+        <footer class="footer">
             <div class="list__container">
                 <div class="list__title">
                     Otros juegos...
@@ -76,8 +91,9 @@
                 <i class="fa-brands fa-linkedin icon"></i>
             </div>
 
-        </footer> -->
+        </footer>
     </div>
 </body>
+<script src="./../js/login.js"></script>
 <script src="./../js/game.js"></script>
 </html>
