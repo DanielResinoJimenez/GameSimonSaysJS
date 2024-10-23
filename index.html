@@ -11,7 +11,7 @@
     <div class="container">
         <h1 class="title">SIMON SAYS...</h1>
         <div class="juego">
-            <form action="./pages/juego.html" class="juego__form">
+            <form action="./pages/juego.html" class="juego__form" id="juego__form">
                 <label for="dificultad" class="form__label">Selecciona dificultad: </label>
                 <select name="dificultad" id="dificultad" required class="form__select">
                     <option class="select__option-0" value="">---</option>
@@ -20,7 +20,7 @@
                     <option class="select__option-3" value="dificil">Dificil</option>
                 </select>
                 <label for="nombre">Escribe tu nickname:</label>
-                <input type="text" required placeholder="Nickname" class="form__select">
+                <input type="text" required placeholder="Nickname" class="form__select" id="nickname">
                 <input type="submit" class="form__button">
             </form>
             <div class="simon">

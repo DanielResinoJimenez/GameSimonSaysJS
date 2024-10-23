@@ -20,3 +20,5 @@ const repeticion = () => {
 }
 
 document.addEventListener("DOMContentLoaded", repeticion);
+juego__form.addEventListener("submit", loginUser);
+
