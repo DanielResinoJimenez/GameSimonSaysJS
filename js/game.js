@@ -47,7 +47,7 @@ let randColor;
 
 // Funcion para representar la secuencia de colores anterior.
 const secuenciaAnt = () => {
-    console.log("Citando la secuencia anterior...");
+
     if (colAnt != "") {
         colAnt.style.boxShadow = "none";
     }
@@ -84,7 +84,7 @@ const mov = () => {
         bgAnt = getComputedStyle(colores[randColor]).getPropertyValue("background-color");
         console.log(colAnt);
         secuencia.push(colores[randColor]);
-
+        console.log("Longitud del array secuencia: " + secuencia.length);
         if (secuencia.length == contMov) {
             console.log("Ronda finalizada");
             rondaTerminada = true;
@@ -154,6 +154,7 @@ const jugar = () => {
     start.style.display = "none";
     lose.style.display = "none";
     game__container.style.display = "flex";
+    points.textContent = "0";
     tiempo = parseInt(1700 * contMov);
     console.log("Turno de la máquina");
     juego = setInterval(mov, velocidad);
@@ -166,7 +167,7 @@ const jugar = () => {
 }
 
 const finJuego = (contMov) => {
-    if(cont > 10){
+    if(cont > 7){
         console.log("Has ganado la partida");
         simon.style.display = "none";
     }
