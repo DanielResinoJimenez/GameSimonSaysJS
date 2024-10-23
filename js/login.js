@@ -33,6 +33,8 @@ const login = (event) => {
         game__container.style.display = "block";
         nickname__text.textContent = nickname.value;
         dificulty__text.textContent = dificulty.value;
+        marcadores.classList = "marcadores marcadores__animation";
+        game__container.classList = "game__container game__container__animation";
     }
 
 }

@@ -21,6 +21,21 @@
     padding-top: 50px;
 }
 
+.game__container__animation{
+    animation-name: game__container;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes game__container {
+    0%{
+        transform: scale(0.25) translateX(1000px);
+    }
+    100%{
+        transform: scale(1) translateX(0px);
+    }
+}
+
 .ronda{
     display: none;
     padding: 20px;
@@ -161,6 +176,22 @@
     padding: 50px;
     border-radius: 10px;
     
+}
+
+.marcadores__animation{
+    animation-name: marcadores;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    
+}
+
+@keyframes marcadores {
+    0%{
+        transform: scale(0.25) translateX(-1000px);
+    }
+    100%{
+        transform: scale(1) translateX(0px);
+    }
 }
 
 .marcadores__text{
