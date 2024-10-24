@@ -11,6 +11,7 @@ let avisoDif = document.getElementById("avisoDif");
 let marcadores = document.getElementById("marcadores");
 let nickname__text = document.getElementById("nickname__text");
 let dificulty__text = document.getElementById("dificulty__text");
+let body2 = document.getElementById("body");
 
 
 // Declaración de funciones
@@ -35,6 +36,8 @@ const login = (event) => {
         dificulty__text.textContent = dificulty.value;
         marcadores.classList = "marcadores marcadores__animation";
         game__container.classList = "game__container game__container__animation";
+        body2.style.overflow = "auto";
+        body2.style.overflowX = "hidden";
     }
 
 }

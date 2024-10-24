@@ -29,9 +29,10 @@
     box-sizing: border-box;
 }
 
-body{
+.body2{
     background-color: var(--bg-color);
     margin: 0;
+    overflow: hidden;
 }
 
 .container{

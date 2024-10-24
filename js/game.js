@@ -3,6 +3,7 @@
 let start = document.getElementById("button__start");
 let ronda = document.getElementById("ronda");
 let lose = document.getElementById("lose");
+let win = document.getElementById("win");
 let game__container = document.getElementById("game__container");
 let simon = document.getElementById("simon");
 let color1 = document.getElementById("color1");
@@ -44,6 +45,10 @@ let velocidad = 1500;
 // Variable donde almacenamos el color que debe iluminarse
 let randColor;
 
+// Variables para almacenar los sonidos de correcto y error
+let error = new Audio('./../assets/sounds/ErrorSound.mp3');
+let correct = new Audio('./../assets/sounds/CorrectSound.mp3');
+
 
 // Funcion para representar la secuencia de colores anterior.
 const secuenciaAnt = () => {
@@ -79,7 +84,7 @@ const mov = () => {
         secuenciaAnt();
     } else {
 
-        colores[randColor].style.boxShadow = "0px 0px 15px 5px " + getComputedStyle(colores[randColor]).getPropertyValue("background-color");
+        colores[randColor].style.boxShadow = "0px 0px 20px 10px " + getComputedStyle(colores[randColor]).getPropertyValue("background-color");
         colAnt = colores[randColor];
         bgAnt = getComputedStyle(colores[randColor]).getPropertyValue("background-color");
         console.log(colAnt);
@@ -107,10 +112,28 @@ const inicioRonda = () => {
     rondaTerminada = false;
 }
 
+// Función para que la partida funcione según la dificultad
+let sumaVelocidad = 0;
+let sumaPuntos = 0;
+const dificultyAsignment = () => {
+    if(dificulty.value == "easy"){
+        sumaVelocidad = 100;
+        sumaPuntos = 10;
+    }else{
+        if(dificulty.value == "medium"){
+            sumaVelocidad = 125;
+            sumaPuntos = 20;
+        }else{
+            sumaVelocidad = 150;
+            sumaPuntos = 30;
+        }
+    }
+}
+
 // Función de aumento si se pasa de ronda.
 const aumento = () => {
     contMov++;
-    velocidad -= 300;
+    velocidad -= sumaVelocidad;
     finJuego(contMov);
 }
 
@@ -124,9 +147,10 @@ const jugador = (event) => {
 
     if (event.target.id == secuencia[contJugador].id) {
         console.log("Acierto");
-        points.textContent = parseInt(points.textContent)+10;
+        points.textContent = parseInt(points.textContent)+parseInt(sumaPuntos);
         contJugador++;
         acertado = true;
+        correct.play();
     } else {
         console.log("Fallo");
         start.textContent = "Restart";
@@ -138,6 +162,7 @@ const jugador = (event) => {
         contMov = 3;
         secuencia = [];
         acertado = false;
+        error.play();
     }
 
     if (contJugador == secuencia.length && acertado) {
@@ -155,6 +180,7 @@ const jugar = () => {
     lose.style.display = "none";
     game__container.style.display = "flex";
     points.textContent = "0";
+    dificultyAsignment();
     tiempo = parseInt(1700 * contMov);
     console.log("Turno de la máquina");
     juego = setInterval(mov, velocidad);
@@ -167,9 +193,10 @@ const jugar = () => {
 }
 
 const finJuego = (contMov) => {
-    if(cont > 7){
+    if(cont > 10){
         console.log("Has ganado la partida");
-        simon.style.display = "none";
+        game__container.style.display = "none";
+        win.style.display = "block";
     }
 }
 

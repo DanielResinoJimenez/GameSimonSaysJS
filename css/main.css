@@ -59,6 +59,14 @@
     display: none;
 }
 
+.win{
+    color: var(--intro-txtcolor);
+    font-size: 50px;
+    text-align: center;
+    font-variant: small-caps;
+    display: none;
+}
+
 /* Login */
 
 .login{
