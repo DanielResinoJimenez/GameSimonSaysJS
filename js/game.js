@@ -115,17 +115,22 @@ const inicioRonda = () => {
 // Función para que la partida funcione según la dificultad
 let sumaVelocidad = 0;
 let sumaPuntos = 0;
+let rondas = 0;
 const dificultyAsignment = () => {
+
     if(dificulty.value == "easy"){
         sumaVelocidad = 100;
         sumaPuntos = 10;
+        rondas = 5;
     }else{
         if(dificulty.value == "medium"){
             sumaVelocidad = 125;
             sumaPuntos = 20;
+            rondas = 7;
         }else{
             sumaVelocidad = 150;
             sumaPuntos = 30;
+            rondas = 10;
         }
     }
 }
@@ -193,7 +198,7 @@ const jugar = () => {
 }
 
 const finJuego = (contMov) => {
-    if(cont > 10){
+    if(contMov > rondas){
         console.log("Has ganado la partida");
         game__container.style.display = "none";
         win.style.display = "block";
